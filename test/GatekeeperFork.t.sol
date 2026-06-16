@@ -20,6 +20,7 @@ contract GatekeeperForkTest is Test {
         vm.startPrank(OWN_ADDRESS, OWN_ADDRESS);
 
         // 2. Generate the perfect gateKey mask tailored to YOUR player address
+        // forge-lint: disable-next-line(unsafe-typecast)
         bytes8 gateKey = bytes8(uint64(uint160(OWN_ADDRESS))) & 0xFFFFFFFF0000FFFF;
 
         // 3. Define the gas search window
