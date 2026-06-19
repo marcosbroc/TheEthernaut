@@ -1,10 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+contract NaughtCoinHack {}
+
 /*
 
 The pwned contract inherits from the ERC20 token and adds a time-lock restriction on the transfer() function.
-However it forgets to add the same restrictions on the inherited transferFrom() and increaseAllowance() functions.
+However it does not have such restrictions on the inherited transferFrom() and increaseAllowance() functions.
 This allows the sender to easily unlock the tokens by using increaseAllowance() and transferFrom() to transfer
 the tokens to another address.
 
